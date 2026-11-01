@@ -1,15 +1,10 @@
 from fastapi import FastAPI
 from src.utils.settings import settings
 from src.Schemas.dtos import InputSchema, AgentResponse
-from src.utils.agent import agent
+from src.utils.llm import agent
+from src.extraction_agent.extraction_agent import agent_route
 
 app = FastAPI(title= "Document Summarizer Agent")
 
+app.include_router(agent_route)
 
-@app.post("/agent-test", response_model=AgentResponse)
-def agent_test(body: InputSchema):
-    query: str = body.user_query
-    result = agent(query)
-    
-    print(result)
-    return AgentResponse(response=result)
