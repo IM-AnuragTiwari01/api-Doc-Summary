@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Upload-File</title>
+    </head>
+    <body>
+        <h1>Upload Document</h1>
+        <form action="http://127.0.0.1:8000/upload/upload-file" method="POST" enctype="multipart/form-data">
+            <div>
+                <label for="file">Select PDF File:</label>
+                <input type="file" name="file" id="file" accept="application/pdf" required />
+            </div>
+            <br><br>
+            <button type="submit">Upload</button>
+        </form>
+    </body>
+</html>
