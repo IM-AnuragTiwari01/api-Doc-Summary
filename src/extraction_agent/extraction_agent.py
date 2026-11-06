@@ -21,6 +21,7 @@ def summarize(body: SummarizeRequestSchema):
     </document>"""
     
     result = agent(user_prompt)
+    print(result)
     return AgentResponse(response=result)
     
     
