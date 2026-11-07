@@ -5,5 +5,8 @@ class Settings(BaseSettings):
     OPENAI_API_KEY: str
     OPENAI_MODEL: str
     DB_CONNECTION: str
+    SECRET: str
+    ALGORITHM: str
+    EXP_TIME: int
     
 settings = Settings()
