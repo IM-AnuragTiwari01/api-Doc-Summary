@@ -20,5 +20,5 @@ def agent(user_prompt: str):
         ],
     )
    
-    return agent_response.choices[0].message.content
+    return agent_response
 
