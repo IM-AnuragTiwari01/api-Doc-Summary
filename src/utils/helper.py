@@ -10,7 +10,7 @@ def is_authenticated(request: Request, db: Session = Depends(get_db)):
     try:
         token = request.headers.get('Authorization')
         if not token:
-            raise HTTPException(status_code=status.HTTP_401_UnAUTHORIZED, detail = "User Unauthorized")
+            raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail = "User Unauthorized")
         token = token.split(" ")[-1]
         secret_key = settings.SECRET
         algorithm = settings.ALGORITHM
