@@ -22,3 +22,21 @@ def agent(user_prompt: str):
    
     return agent_response
 
+def agent1(user_prompt: str):
+    agent_response = client.chat.completions.create(
+        model=settings.OPENAI_MODEL,
+        messages=[
+            
+                {
+                    "role": "assistant",
+                    "content": "You are an assisstant and you just match the job description and resume skills and also provide percentage match"
+                },
+                {
+                    "role": "user",
+                    "content": user_prompt
+                }  
+        ],
+    )
+   
+    return agent_response
+
