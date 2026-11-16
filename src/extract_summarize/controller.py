@@ -1,5 +1,5 @@
 from fastapi.concurrency import run_in_threadpool
-from src.extract_summarize.dto import SummarizeRequestSchema
+from src.extract_summarize.dto import SummarizeRequestSchema, JobDescRequestSchema
 from sqlalchemy.orm import Session
 from src.users.model import UserModel
 from src.extract_summarize.text_extract import get_pdf_text
@@ -30,7 +30,7 @@ async def summarize_agent(body: SummarizeRequestSchema, db: Session, user: UserM
         "summary": response.choices[0].message.content
     }
     
-async def assisstance_from_job_description:
+async def assisstance_from_job_description(body: JobDescRequestSchema, db: Session, user: UserModel):
     
     stored_path = body.stored_path
     job_description = body.job_description
