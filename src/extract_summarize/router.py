@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends
 from src.extract_summarize import controller
-from src.extract_summarize.dto import SummarizeRequestSchema
+from src.extract_summarize.dto import SummarizeRequestSchema, JobDescRequestSchema
 from sqlalchemy.orm import Session
 from src.users.model import UserModel
 from src.utils.db import get_db
@@ -11,3 +11,11 @@ extract_summarize_route = APIRouter(prefix="/extract")
 @extract_summarize_route.post("/summarize")
 async def summarize_agent(body: SummarizeRequestSchema, db:Session = Depends(get_db), user: UserModel = Depends(is_authenticated)):
     return await controller.summarize_agent(body, db, user)
+
+@extract_summarize_route.post("/job-description/assist")
+async def assistance_from_job_description(
+    body: JobDescRequestSchema, 
+    db: Session = Depends(get_db), 
+    user: UserModel = Depends(is_authenticated)
+):
+    return await controller.assistance_from_job_description(body, db, user)
