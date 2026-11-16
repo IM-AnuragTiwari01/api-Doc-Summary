@@ -50,12 +50,12 @@ async def assisstance_from_job_description(body: JobDescRequestSchema, db: Sessi
         {job_description}
         </document>
         """
-        response = await run_in_threadpool(agent, user_prompt)
-        print()
-        print("-------------------------------*** LOGGING ***---------------------------------------------------")
-        print(response.usage)
-        print("-------------------------------*** LOGGING ***---------------------------------------------------")
-        print()
-        return {
+    response = await run_in_threadpool(agent, user_prompt)
+    print()
+    print("-------------------------------*** LOGGING ***---------------------------------------------------")
+    print(response.usage)
+    print("-------------------------------*** LOGGING ***---------------------------------------------------")
+    print()
+    return {
             "summary": response.choices[0].message.content
-        }
+    }
